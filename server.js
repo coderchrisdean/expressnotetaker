@@ -19,10 +19,9 @@ app.use(express.json());
 
 // get requests
 
-//get db.json file from db folder through api.js
-api(app);
-//get notes.html file from public folder through html.js
-html(app);
+app.use('/api', api);
+app.use('/', html);
+
 
 
 
