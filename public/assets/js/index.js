@@ -6,7 +6,7 @@ let saveNoteBtn;
 let newNoteBtn;
 let noteList;
 
-if (window.location.pathname === './public/') {
+if (window.location.pathname === '/notes') {
   noteTitle = document.querySelector('.note-title');
   noteText = document.querySelector('.note-textarea');
   saveNoteBtn = document.querySelector('.save-note');
@@ -36,6 +36,7 @@ const getNotes = () =>
     },
   });
 // save note to db.json
+
 const saveNote = (note) =>
   fetch('/api/notes', {
     method: 'POST',

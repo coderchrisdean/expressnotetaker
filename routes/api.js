@@ -1,68 +1,56 @@
-// api route
-
-const router = require('express').Router();
-const fs = require('fs');
 const path = require('path');
-const uuid = require('../helpers/uuid');
+const fs = require('fs');
+const util = require('util');
+const db = './db/db.json';
 
- //save note to db.json file
 
 
-    
-//GET `/api/notes` - Should read the db.json file and return all saved notes as JSON.
 
-    router.get('/api/notes', (req, res) => {
-        fs.readFile(path.join(__dirname, '../db/db.json'), 'utf8', (err, data) => {
-            if (err) throw err;
-            res.json(JSON.parse(data));
-        });
+module.exports = (app) => {
+    // get /api/notes should read the db.json file and return all saved notes as JSON
+    app.get('/api/notes', (req, res) => {
+        // Log our request to the terminal
+        console.info(`${req.method} request received to get notes`);
+
+        // Sending all notes to the client
+        res.sendFile(path.join(__dirname, db));
     });
+    // post /api/notes should receive a new note to save on the request body, add it to the db.json file, and then return the new note to the client
+    app.post'/api/notes', (req, res) => {
+        // Log that a POST request was received
+        console.info(`${req.method} request received to add a note`);
 
+        // If all the required properties are present
+        if (req.body.title && req.body.text) {
+            // Variable for the object we will save
+            const { title, text } = req.body;
 
+            // Variable for the object we will save
+            const newNote = {
+                title,
+                text,
+                note_id: uuid(),
+            };
 
+            //obtain existing notes
+            fs.readFile(db, 'utf8', (err, data) => {
+                if (err) {
+                    console.error(err);
+                } else {
+                    //parse JSON string to object
+                    const parsedNotes = JSON.parse(data);
 
-//POST `/api/notes` - Should receive a new note to save on the request body, add it to the `db.json` file, and then return the new note to the client.
-router.post('/api/notes', (req, res) => {
-    // read db.json file
-    fs.readFile(path.join(__dirname, '../db/db.json'), 'utf8', (err, data) => {
-        if (err) throw err;
-        let db = JSON.parse(data);
-        // add new note to db.json file
-        let userNote = db.push(req.body);
-        // add unique id to note
-        userNote.id = uuid();
+                    //add new note to existing notes
+                    parsedNotes.push(newNote);
 
-        // write new db.json file
-        db.push(userNote);
-        fs.writeFile(path.join(__dirname, '../db/db.json'), JSON.stringify(db), (err) => {
-            if (err) throw err;
-            // return new db.json file
-            res.json(db);
-        });
-    });
-});
+                    //write updated notes back to db.json
+                    fs.writeFile(db, JSON.stringify(parsedNotes, null, 4), (err) =>
+                        err ? console.error(err) : console.info('Successfully updated notes!')
+                    );
+                }
+            });
+        
+    }
+}
+}
 
-
-// ** BONUS **
-
-router.delete ('/api/notes/:id', (req, res) => {
-//read db.json file by id
-    fs.readFile(path.join(__dirname, '../db/db.json'), 'utf8', (err, data) => {
-        if (err) throw err;
-        let db = JSON.parse(data);
-        //filter out the note with the id
-        let noteIndex = db.findIndex(note => note.id === req.params.id);   
-        //remove the note from the array
-        db.splice(noteIndex, 1);
-        //write new db.json file
-        fs.writeFile(path.join(__dirname, '../db/db.json'), JSON.stringify(db), (err) => {
-            if (err) throw err;
-            //return new db.json file
-            res.json(db);
-        });
-    });
-});
-
-
-
-module.exports = router

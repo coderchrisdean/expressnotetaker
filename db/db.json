@@ -1,13 +1,11 @@
 [
     {
         "title": "Test Title",
-        "text": "Test text",
-        "id": "0011"
+        "text": "Test text"
     },
     {
         "title": "Walk the dog",
-        "text": "Take the dog for a walk",
-        "id": "0012"
+        "text": "Take the dog for a walk"
     }
     
 ]
