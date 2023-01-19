@@ -5,13 +5,17 @@
 This application allows the user to create, save, and delete notes. The user can also view previously saved notes. The application uses the express package and saves and retrieves note data from a JSON file.
 <br>
 ## Table of Contents
-<br>
+
 * [Installation](#installation)
 * [Usage](#usage)
 * [License](#license)
 * [Contributing](#contributing)
 * [Questions](#questions)
-<br>
+* [Link to Deployed Application](#link-to-deployed-application)
+* [Link to GitHub Repository](#link-to-github-repository)
+* [Screenshot of Application](#screenshot-of-application)
+* [PSEUDOCODE](#pseudocode)
+
 ## Installation
 <br>
 To install necessary dependencies, run the following command:
@@ -46,7 +50,7 @@ https://notetaker-coderchris.herokuapp.com/
 https://github.com/coderchrisdean/expressnotetaker
 
 ## Screenshot of Application
-.\public\assets\images\Screenshot 2023-01-19 133145.png
+<img src="https://github.com/coderchrisdean/expressnotetaker/blob/main/public/assets/images/Screenshot%202023-01-19%20133145.png" alt="Screenshot of Note Taker Application">
 
 
 
