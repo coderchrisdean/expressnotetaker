@@ -1,9 +1,9 @@
 # Note Taker Application
-<br>
+
 ## Description
-<br>
+
 This application allows the user to create, save, and delete notes. The user can also view previously saved notes. The application uses the express package and saves and retrieves note data from a JSON file.
-<br>
+
 ## Table of Contents
 
 * [Installation](#installation)
@@ -17,29 +17,29 @@ This application allows the user to create, save, and delete notes. The user can
 * [PSEUDOCODE](#pseudocode)
 
 ## Installation
-<br>
+
 To install necessary dependencies, run the following command:
-<br>
+
 ```
 npm i
 ```
-<br>
+
 ## Usage
-<br>
+
 This application is used to create, save, and delete notes.
-<br>
+
 ## License
-<br>
+
 None
-<br>
+
 ## Contributing
-<br>
+
 None
-<br>
+
 ## Questions
-<br>
+
 If you have any questions about the project, open an issue or contact me directly at coderchrisdean@gmail.com (mailto:coderchrisdean@gmail.com).
-<br>
+
 You can find more of my work at [coderchrisdean](
 ## Link to Deployed Application
 
