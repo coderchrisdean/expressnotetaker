@@ -1,5 +1,5 @@
-// Immediately export a function that generates a string of random numbers and letters
+// Immediately export a function that generates a string of 5 random numbers
 module.exports = () =>
-  Math.floor((1 + Math.random()) * 0x10000)
-    .toString(16)
-    .substring(1);
+  Math.floor((1 + Math.random()) * 0x1000)
+    // .toString(16)
+    // .substring(1);
