@@ -11,7 +11,7 @@ This application allows the user to create, save, and delete notes. The user can
 * [License](#license)
 * [Contributing](#contributing)
 * [Questions](#questions)
-* [Link to Deployed Application](#link-to-deployed-application)
+* [Link to Deployed Application] (#link-to-deployed-application)
 * [Link to GitHub Repository](#link-to-github-repository)
 * [Screenshot of Application](#screenshot-of-application)
 * [PSEUDOCODE](#pseudocode)
@@ -41,7 +41,7 @@ None
 If you have any questions about the project, open an issue or contact me directly at coderchrisdean@gmail.com (mailto:coderchrisdean@gmail.com).
 
 You can find more of my work at [coderchrisdean](
-## Link to Deployed Application
+## Link to Deployed Application (Heroku)
 
 https://notetaker-coderchris.herokuapp.com/
 

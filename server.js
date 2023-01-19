@@ -87,7 +87,7 @@ app.post("/api/notes", (req, res) => {
 
 //** BONUS **
 // DELETE ROUTE for a note
-app.delete("/api/notes/:id", (req, res) => {
+app.delete("/api/notes/:note_id", (req, res) => {
   // Log that a DELETE request was received
   console.info(`${req.method} request received to delete a note`);
 
@@ -95,22 +95,46 @@ app.delete("/api/notes/:id", (req, res) => {
   fs.readFile("./db/db.json", "utf8", (err, data) => {
     if (err) {
       console.error(err);
-    } else {
-      //parse JSON string to object
-      const parsedNotes = JSON.parse(data);
+      return res.status(500).json({ error: "Error reading notes from file" });
+    }
+    //parse JSON string to object
+    let parsedNotes = JSON.parse(data);
 
-      // remove note with given id property
-      const deleteNote = parsedNotes.filter(
+    // loop through the notes to find the one to delete
+    for (let i = 0; i < parsedNotes.length; i++) {
+      if (parsedNotes[i].id === req.params.id) {
+        parsedNotes.splice(i, 1);
+        console.log(parsedNotes);
+        break;
+      }
+
+      //delete note with given id
+      parsedNotes = parsedNotes.filter(
         (note) => note.note_id !== req.params.id
       );
-
-      //write updated notes back to db.json
-      fs.writeFile("./db/db.json", JSON.stringify(deleteNote, null, 4), (err) =>
-        err ? console.error(err) : console.info("Successfully updated notes.")
-      );
+      
     }
+    //write updated notes back to db.json
+    fs.writeFile(
+      "./db/db.json",
+      JSON.stringify(parsedNotes, null, 4),
+      (err) => {
+        if (err) {
+          console.error(err);
+          return res.status(500).json({ error: "Error writing notes to file" });
+        }
+        console.info("Successfully updated notes.");
+        return res.status(200).json({ message: "Note deleted successfully" });
+      }
+    );
   });
 });
+
+//WILD CARD ROUTE
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "/public/index.html"));
+});
+
 // start server
 
 app.listen(PORT, () => {
