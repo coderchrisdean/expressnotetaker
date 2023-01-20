@@ -5,6 +5,8 @@ const fs = require("fs");
 const path = require("path");
 const uuid = require("./helpers/uuid");
 const app = express();
+
+
 // const api = require('./routes/api'); ** condensed to server.js
 // const html = require('./routes/html'); ** condensed to server.js
 // set up port
@@ -30,6 +32,7 @@ app.get("/api/notes", (req, res) => {
   console.info(`${req.method} request received to get notes`);
 
   // Sending all reviews to the client
+
   return res.status(200).json(db);
 });
 
@@ -41,7 +44,7 @@ app.post("/api/notes", (req, res) => {
   // If all the required properties are present
   if (req.body.title && req.body.text) {
     // Variable for the object we will save
-    const { title, text } = req.body;
+    const { title, text, note_id } = req.body;
 
     // Variable for the object we will save
     const newNote = {
@@ -71,18 +74,25 @@ app.post("/api/notes", (req, res) => {
               : console.info("Successfully updated notes!")
         );
       }
+      
+      const response = {
+        status: "success",
+        body: newNote,
+      };
+      
+      
     });
-
-    // readAndAppend(newNote, db);
-
-    const response = {
-      status: "success",
-      body: newNote,
-    };
-
+   // send response back to client
     console.log(response);
-    res.json(response);
+    res.status(201).json(response);
+  } else {
+    res.status(500).json("Error in posting note");
+
+
+ 
   }
+
+  
 });
 
 //** BONUS **
