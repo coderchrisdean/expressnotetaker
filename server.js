@@ -31,20 +31,23 @@ app.get("/api/notes", (req, res) => {
   // Log our request to the terminal
   console.info(`${req.method} request received to get notes`);
 
-  // Sending all reviews to the client
+  // Sending all notes to the clent
+ 
 
   return res.status(200).json(db);
+
 });
 
 // POST ROUTE for a new note
 app.post("/api/notes", (req, res) => {
   // Log that a POST request was received
   console.info(`${req.method} request received to add a note`);
+  console.log(req.body);
 
   // If all the required properties are present
   if (req.body.title && req.body.text) {
     // Variable for the object we will save
-    const { title, text, note_id } = req.body;
+    const { title, text } = req.body;
 
     // Variable for the object we will save
     const newNote = {
@@ -74,17 +77,13 @@ app.post("/api/notes", (req, res) => {
               : console.info("Successfully updated notes!")
         );
       }
-      
-      const response = {
-        status: "success",
-        body: newNote,
-      };
+    
       
       
     });
    // send response back to client
-    console.log(response);
-    res.status(201).json(response);
+    // console.log(response);
+    res.status(201).json("Note added.")
   } else {
     res.status(500).json("Error in posting note");
 
@@ -92,6 +91,7 @@ app.post("/api/notes", (req, res) => {
  
   }
 
+  
   
 });
 
