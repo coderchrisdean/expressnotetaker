@@ -11,7 +11,7 @@ This application allows the user to create, save, and delete notes. The user can
 * [License](#license)
 * [Contributing](#contributing)
 * [Questions](#questions)
-* [Link to Deployed Application] (#link-to-deployed-application)
+* [Link to Deployed Application (Heroku)](#link-to-deployed-application-(Heroku))
 * [Link to GitHub Repository](#link-to-github-repository)
 * [Screenshot of Application](#screenshot-of-application)
 * [PSEUDOCODE](#pseudocode)
