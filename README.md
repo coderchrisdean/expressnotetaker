@@ -6,22 +6,25 @@ This application allows the user to create, save, and delete notes. The user can
 
 ## Table of Contents
 
-* [Installation](#installation)
-* [Usage](#usage)
-* [License](#license)
-* [Contributing](#contributing)
-* [Questions](#questions)
-* [Link to Deployed Application (Heroku)](#link-to-deployed-application-(Heroku))
-* [Link to GitHub Repository](#link-to-github-repository)
-* [Screenshot of Application](#screenshot-of-application)
-* [PSEUDOCODE](#pseudocode)
+- [Note Taker Application](#note-taker-application)
+  - [Description](#description)
+  - [Table of Contents](#table-of-contents)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [License](#license)
+  - [Contributing](#contributing)
+  - [Questions](#questions)
+  - [Link to Deployed Application (Heroku)](#link-to-deployed-application-heroku)
+  - [Link to GitHub Repository](#link-to-github-repository)
+  - [Screenshot of Application](#screenshot-of-application)
+  - [PSEUDOCODE](#pseudocode)
 
 ## Installation
 
 To install necessary dependencies, run the following command:
 
 ```
-npm i
+npm start
 ```
 
 ## Usage
