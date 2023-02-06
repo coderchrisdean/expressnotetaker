@@ -1,28 +1,36 @@
 // Dependencies
 const router = require("express").Router();
-const store = require("../helpers/store");
+const store = require("../db/store");
 
 // retrieve notes from db.json and display them on the page
 router.get("/notes", (req, res) => {
-    store.getNotes()
-        .then((notes) => res.json(notes))
-        .catch((err) => res.status(500).json(err));
-})
+    try {
+        store.getNotes().then((notes) => res.json(notes));
+        } catch (err) {
+        res.status(500).json(err);
+        console.log("Error retrieving notes.");
+        }
+});
 
 // add a new note to db.json
-router.post("/notes", (req, res) => {
-    store.addNote()
-        .then((note) => res.json(note))
-        .catch((err) => res.status(500).json(err));
-})
+router.post("/notes/:id", (req, res) => {
+  try {
+    store.addNote(req.body);
+    res.json({ ok: true });
+    }
+    catch (err) {
+    res.status(500).json(err);
+    console.log("Error adding note.");
+    }
 
-// delete a note from db.json
-router.delete("/notes/:id", (req, res) => {
-    store.removeNote()
-        .then(() => res.json({ ok: true }))
-        .catch((err) => res.status(500).json(err));
-})
+});
+
+//delete note
+router.delete("/api/notes/:id", (req, res) => {
+ store.removeNote(req.params.id)
+ .then(() => res.json({ ok: true, message: "Note deleted" }))
+    .catch((err) => res.status(500).json(err));
+});
 
 
-    module.exports = router;
-    
+module.exports = router;
