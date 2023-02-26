@@ -1,24 +1,21 @@
 // dependencies
 const express = require("express");
 const app = express();
-
-// set up routes
-
-const htmlRoutes = require("./routes/htmlRoutes"); //uses htmlRoutes.js
-const apiRoutes = require("./routes/apiRoutes"); //uses apiRoutes.js
+const dotenv = require("dotenv");
+const htmlRoutes = require("./routes/apiRoutes"); //uses htmlRoutes.js
+const apiRoutes = require("./routes/htmlRoutes"); //uses apiRoutes.js
 
 // set up port
-const PORT = process.env.PORT || 3306;
+const PORT = process.env.PORT || 3001;
 
 // Middleware for parsing JSON and urlencoded form data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
+
+// use routes
 app.use("/", htmlRoutes);
 app.use("/api", apiRoutes);
-
-
-
 
 // start server
 
