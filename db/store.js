@@ -30,8 +30,8 @@ class Store {
 
     return this.getNotes()
       .then((notes) => [...notes, newNote])
-      .then((updatedNotes) => this.write(updatedNotes))
-      .then(() => this.newNote);
+      .then((updatedNotes) => this.write(JSON.stringify(updatedNotes)))
+      .then(() => newNote);
   }
 
   getNotes() {
