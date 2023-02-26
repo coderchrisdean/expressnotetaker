@@ -1,4 +1,4 @@
-# Note Taker Application
+# Notetaker Application
 
 ## Description
 
@@ -6,18 +6,17 @@ This application allows the user to create, save, and delete notes. The user can
 
 ## Table of Contents
 
-- [Note Taker Application](#note-taker-application)
-  - [Description](#description)
-  - [Table of Contents](#table-of-contents)
-  - [Installation](#installation)
-  - [Usage](#usage)
-  - [License](#license)
-  - [Contributing](#contributing)
-  - [Questions](#questions)
-  - [Link to Deployed Application (Heroku)](#link-to-deployed-application-heroku)
-  - [Link to GitHub Repository](#link-to-github-repository)
-  - [Screenshot of Application](#screenshot-of-application)
-  - [PSEUDOCODE](#pseudocode)
+- [Description](#description)
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)   
+- [Contributing](#contributing)
+- [Tests](#tests)
+- [Questions](#questions)
+- [Link to Deployed Application (Heroku)](#link-to-deployed-application-heroku)
+- [Link to GitHub Repository](#link-to-github-repository)
+- [Screenshot of Application](#screenshot-of-application)
+- [PSEUDOCODE](#pseudocode)
 
 ## Installation
 
