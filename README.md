@@ -49,7 +49,7 @@ https://notetaker-coderchris.herokuapp.com/
 
 ## Link to GitHub Repository
 
-https://github.com/coderchrisdean/expressnotetaker
+https://github.com/coderchrisdean/powedered-fireball
 
 ## Screenshot of Application
 <img src="https://github.com/coderchrisdean/expressnotetaker/blob/main/public/assets/images/Screenshot%202023-01-19%20133145.png" alt="Screenshot of Note Taker Application">
